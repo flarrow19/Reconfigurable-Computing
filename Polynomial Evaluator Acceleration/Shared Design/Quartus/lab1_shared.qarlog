@@ -1,0 +1,18 @@
+Quartus Prime Archive log --	/home/kmalik10/Lab1_shared/lab1_shared.qarlog
+
+Archive:	/home/kmalik10/Lab1_shared/lab1_shared.qar
+Date:		Thu Feb  8 18:27:33 2024
+Quartus Prime		23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+	=========== Files Selected: ===========
+/home/kmalik10/Lab1_shared/SDC1.sdc
+/home/kmalik10/Lab1_shared/lab1.qpf
+/home/kmalik10/Lab1_shared/lab1.qsf
+/home/kmalik10/Lab1_shared/lab1.v
+/home/kmalik10/Lab1_shared/lab1_assignment_defaults.qdf
+/home/kmalik10/Lab1_shared/lab1_early_pwr.csv
+/home/kmalik10/Lab1_shared/lab1_tb.v
+	======= Total: 7 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
