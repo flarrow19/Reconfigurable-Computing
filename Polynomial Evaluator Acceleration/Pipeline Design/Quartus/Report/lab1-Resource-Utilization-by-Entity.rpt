@@ -1,0 +1,53 @@
+Resource Utilization by Entity report for lab1
+Wed Feb  7 02:06:14 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Resource Utilization by Entity
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+--------------------------+----------------------------------------+---------------------------------------------------+------+--------------+--------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M20Ks ; DSP Blocks needed [=A-B] ; [A] DSP Blocks used in final placement ; [B] Estimate of DSPs recoverable by dense merging ; Pins ; Virtual Pins ; IOPLLs ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+--------------------------+----------------------------------------+---------------------------------------------------+------+--------------+--------+---------------------+-------------+--------------+
+; |                          ; 123.5 (43.2)         ; 141.0 (60.7)                     ; 44.0 (44.0)                                       ; 26.5 (26.5)                      ; 0.0 (0.0)            ; 191 (11)            ; 195 (195)                 ; 0 (0)         ; 0                 ; 0     ; 4                        ; 8                                      ; 0                                                 ; 2    ; 53           ; 0 (0)  ; |                   ; lab1        ; altera_work  ;
+;    |Addr0|                 ; 5.0 (5.0)            ; 5.0 (5.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 9 (9)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0            ; 0 (0)  ; Addr0               ; addr32p16   ; altera_work  ;
+;    |Addr1|                 ; 10.0 (10.0)          ; 10.0 (10.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 20 (20)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0            ; 0 (0)  ; Addr1               ; addr32p16   ; altera_work  ;
+;    |Addr2|                 ; 4.0 (4.0)            ; 4.0 (4.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0            ; 0 (0)  ; Addr2               ; addr32p16   ; altera_work  ;
+;    |Addr3|                 ; 4.0 (4.0)            ; 4.0 (4.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0            ; 0 (0)  ; Addr3               ; addr32p16   ; altera_work  ;
+;    |Addr4|                 ; 2.2 (2.2)            ; 2.2 (2.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0            ; 0 (0)  ; Addr4               ; addr32p16   ; altera_work  ;
+;    |Mult0|                 ; 4.5 (4.5)            ; 4.5 (4.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 17 (17)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0            ; 0 (0)  ; Mult0               ; mult16x16   ; altera_work  ;
+;    |Mult1|                 ; 14.0 (14.0)          ; 14.0 (14.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 28 (28)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 1                        ; 2                                      ; 1                                                 ; 0    ; 0            ; 0 (0)  ; Mult1               ; mult32x16   ; altera_work  ;
+;    |Mult2|                 ; 14.0 (14.0)          ; 14.0 (14.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 28 (28)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 1                        ; 2                                      ; 1                                                 ; 0    ; 0            ; 0 (0)  ; Mult2               ; mult32x16   ; altera_work  ;
+;    |Mult3|                 ; 14.0 (14.0)          ; 14.0 (14.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 28 (28)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 1                        ; 2                                      ; 1                                                 ; 0    ; 0            ; 0 (0)  ; Mult3               ; mult32x16   ; altera_work  ;
+;    |Mult4|                 ; 8.7 (8.7)            ; 8.7 (8.7)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 28 (28)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 1                        ; 2                                      ; 1                                                 ; 0    ; 0            ; 0 (0)  ; Mult4               ; mult32x16   ; altera_work  ;
++----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+--------------------------+----------------------------------------+---------------------------------------------------+------+--------------+--------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
