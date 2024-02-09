@@ -1,0 +1,15 @@
+# TCL commands history
+# Mon Jan 22 12:37:06 2024
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"zoom"}
+nuiqu_zoom_in -x_pos 179 -y_pos 304 -checkpoint user_runs/default_run/elaborated
+nuiqu_zoom_in -x_pos 179 -y_pos 304 -checkpoint user_runs/default_run/elaborated
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"selection"}
+dni::trigger_gui -command gui_command::rtl_analyzer::unfold -options {"checkpoint":"user_runs/default_run/elaborated","object":"button @hier_unfold inst Mult0 mult16x16 {}"}
+dni::selection -action set -object {}
+dni::trigger_gui -command gui_command::rtl_analyzer::unfold -options {"checkpoint":"user_runs/default_run/elaborated","object":"button @hier_unfold inst Addr0 addr32p16 {}"}
+dni::selection -action set -object {}
+dni::trigger_gui -command gui_command::rtl_analyzer::zoom_fit -options {"checkpoint":"user_runs/default_run/elaborated"}
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"zoom"}
+nuiqu_zoom_in -x_pos 1106 -y_pos 286 -checkpoint user_runs/default_run/elaborated
+nuiqu_zoom_in -x_pos 1106 -y_pos 306 -checkpoint user_runs/default_run/elaborated
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"pan"}

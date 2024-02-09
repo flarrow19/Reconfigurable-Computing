@@ -1,0 +1,18 @@
+# TCL commands history
+# Sun Jan 21 14:19:30 2024
+dni::selection -action set -object {port_bus::lab1::Mult0|i_dataa}
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"zoom"}
+nuiqu_zoom_in -x_pos 68 -y_pos 156 -checkpoint user_runs/default_run/elaborated
+nuiqu_zoom_in -x_pos 62 -y_pos 156 -checkpoint user_runs/default_run/elaborated
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"selection"}
+dni::trigger_gui -command gui_command::rtl_analyzer::unfold -options {"checkpoint":"user_runs/default_run/elaborated","object":"button @hier_unfold inst Mult0 mult16x16 {}"}
+dni::selection -action set -object {port_bus::lab1::Mult0|i_dataa}
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"zoom"}
+nuiqu_zoom_in -x_pos 92 -y_pos 160 -checkpoint user_runs/default_run/elaborated
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"off","mode":"zoom"}
+dni::trigger_gui -command gui_command::rtl_analyzer::fit_selection_in_window -options {"checkpoint":"user_runs/default_run/elaborated"}
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"pan"}
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"selection"}
+dni::trigger_gui -command gui_command::rtl_analyzer::unfold -options {"checkpoint":"user_runs/default_run/elaborated","object":"button @hier_unfold inst Addr0 addr32p16 {}"}
+dni::selection -action set -object {port_bus::lab1::Mult0|i_dataa}
+dni::trigger_gui -command gui_command::rtl_analyzer::set_view_mode -options {"checkpoint":"user_runs/default_run/elaborated","enable":"on","mode":"pan"}
