@@ -1,0 +1,87 @@
+do runfile
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# Questa Intel FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:29:49 on Feb 07,2024
+# vlog -reportprogress 300 lab1.v 
+# -- Compiling module lab1
+# -- Compiling module mac_unit
+# -- Compiling module mult32p16
+# -- Compiling module addr32p32
+# 
+# Top level modules:
+# 	lab1
+# End time: 12:29:49 on Feb 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:29:49 on Feb 07,2024
+# vlog -reportprogress 300 lab1_tb.v 
+# -- Compiling module lab1_tb
+# 
+# Top level modules:
+# 	lab1_tb
+# End time: 12:29:49 on Feb 07,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim work.lab1_tb -voptargs="+acc" 
+# Start time: 12:29:49 on Feb 07,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt6
+# Loading work.lab1_tb(fast)
+# Loading work.lab1(fast)
+# Loading work.mac_unit(fast)
+# Loading work.mult32p16(fast)
+# Loading work.addr32p32(fast)
+add wave -position insertpoint sim:/lab1_tb/dut/*
+run -all
+# at         165ns SUCCESS	 X:  0.000122	 Expected Y:  1.000122	 Got Y:  1.000000	 Error:  0.000122	 <  0.045000
+# at         285ns SUCCESS	 X:  0.437500	 Expected Y:  1.548820	 Got Y:  1.548820	 Error:  0.000000	 <  0.045000
+# at         405ns SUCCESS	 X:  1.741333	 Expected Y:  5.653997	 Got Y:  5.654002	 Error:  0.000005	 <  0.045000
+# at         525ns SUCCESS	 X:  0.175354	 Expected Y:  1.191668	 Got Y:  1.191668	 Error:  0.000000	 <  0.045000
+# at         645ns SUCCESS	 X:  3.548218	 Expected Y: 29.578277	 Got Y: 29.579465	 Error:  0.001187	 <  0.045000
+# at         765ns SUCCESS	 X:  3.890381	 Expected Y: 39.240435	 Got Y: 39.242432	 Error:  0.001997	 <  0.045000
+# at        1029ns SUCCESS	 X:  0.740234	 Expected Y:  2.096173	 Got Y:  2.096172	 Error:  0.000002	 <  0.045000
+# at        1149ns SUCCESS	 X:  3.255310	 Expected Y: 23.027957	 Got Y: 23.028678	 Error:  0.000721	 <  0.045000
+# at        1269ns SUCCESS	 X:  1.052307	 Expected Y:  2.862044	 Got Y:  2.862040	 Error:  0.000004	 <  0.045000
+# at        1389ns SUCCESS	 X:  1.834961	 Expected Y:  6.193981	 Got Y:  6.193991	 Error:  0.000010	 <  0.045000
+# at        1509ns SUCCESS	 X:  2.957642	 Expected Y: 17.717524	 Got Y: 17.717932	 Error:  0.000408	 <  0.045000
+# at        1629ns SUCCESS	 X:  1.379883	 Expected Y:  3.962578	 Got Y:  3.962574	 Error:  0.000004	 <  0.045000
+# at        1749ns SUCCESS	 X:  3.171143	 Expected Y: 21.399463	 Got Y: 21.400082	 Error:  0.000619	 <  0.045000
+# at        1869ns SUCCESS	 X:  3.684875	 Expected Y: 33.155227	 Got Y: 33.156697	 Error:  0.001470	 <  0.045000
+# at        1989ns SUCCESS	 X:  2.703796	 Expected Y: 14.084164	 Got Y: 14.084398	 Error:  0.000235	 <  0.045000
+# at        2109ns SUCCESS	 X:  0.554443	 Expected Y:  1.740929	 Got Y:  1.740928	 Error:  0.000001	 <  0.045000
+# at        2229ns SUCCESS	 X:  2.880005	 Expected Y: 16.525907	 Got Y: 16.526254	 Error:  0.000346	 <  0.045000
+# at        2349ns SUCCESS	 X:  3.082764	 Expected Y: 19.800061	 Got Y: 19.800585	 Error:  0.000524	 <  0.045000
+# at        2469ns SUCCESS	 X:  3.428040	 Expected Y: 26.715896	 Got Y: 26.716871	 Error:  0.000975	 <  0.045000
+# at        2589ns SUCCESS	 X:  3.298218	 Expected Y: 23.899509	 Got Y: 23.900289	 Error:  0.000780	 <  0.045000
+# at        2709ns SUCCESS	 X:  0.639221	 Expected Y:  1.894901	 Got Y:  1.894900	 Error:  0.000001	 <  0.045000
+# at        2829ns SUCCESS	 X:  2.401550	 Expected Y: 10.645304	 Got Y: 10.645411	 Error:  0.000107	 <  0.045000
+# at        2949ns SUCCESS	 X:  0.701355	 Expected Y:  2.016301	 Got Y:  2.016300	 Error:  0.000001	 <  0.045000
+# at        3069ns SUCCESS	 X:  1.910767	 Expected Y:  6.666646	 Got Y:  6.666663	 Error:  0.000016	 <  0.045000
+# at        3261ns SUCCESS	 X:  2.775940	 Expected Y: 15.041535	 Got Y: 15.041812	 Error:  0.000277	 <  0.045000
+# at        3381ns SUCCESS	 X:  3.417664	 Expected Y: 26.480547	 Got Y: 26.481506	 Error:  0.000959	 <  0.045000
+# at        3501ns SUCCESS	 X:  2.634399	 Expected Y: 13.215598	 Got Y: 13.215796	 Error:  0.000199	 <  0.045000
+# at        3621ns SUCCESS	 X:  3.368408	 Expected Y: 25.387968	 Got Y: 25.388850	 Error:  0.000881	 <  0.045000
+# at        3741ns SUCCESS	 X:  0.598083	 Expected Y:  1.818561	 Got Y:  1.818561	 Error:  0.000001	 <  0.045000
+# at        3861ns SUCCESS	 X:  1.034790	 Expected Y:  2.812525	 Got Y:  2.812521	 Error:  0.000004	 <  0.045000
+# at        3981ns SUCCESS	 X:  3.951538	 Expected Y: 41.228160	 Got Y: 41.230341	 Error:  0.002181	 <  0.045000
+# at        4101ns SUCCESS	 X:  0.823242	 Expected Y:  2.277386	 Got Y:  2.277384	 Error:  0.000002	 <  0.045000
+# at        4221ns SUCCESS	 X:  0.559326	 Expected Y:  1.749448	 Got Y:  1.749447	 Error:  0.000001	 <  0.045000
+# at        4341ns SUCCESS	 X:  0.140198	 Expected Y:  1.150501	 Got Y:  1.150501	 Error:  0.000000	 <  0.045000
+# at        4461ns SUCCESS	 X:  3.374756	 Expected Y: 25.526511	 Got Y: 25.527403	 Error:  0.000892	 <  0.045000
+# at        4581ns SUCCESS	 X:  3.054749	 Expected Y: 19.315723	 Got Y: 19.316219	 Error:  0.000496	 <  0.045000
+# at        4701ns SUCCESS	 X:  0.445984	 Expected Y:  1.562015	 Got Y:  1.562015	 Error:  0.000000	 <  0.045000
+# at        4821ns SUCCESS	 X:  3.698364	 Expected Y: 33.527879	 Got Y: 33.529381	 Error:  0.001502	 <  0.045000
+# at        4941ns SUCCESS	 X:  2.359924	 Expected Y: 10.237271	 Got Y: 10.237367	 Error:  0.000096	 <  0.045000
+# at        5061ns SUCCESS	 X:  1.651001	 Expected Y:  5.175761	 Got Y:  5.175762	 Error:  0.000001	 <  0.045000
+# at        5181ns SUCCESS	 X:  1.010254	 Expected Y:  2.744582	 Got Y:  2.744578	 Error:  0.000003	 <  0.045000
+# at        5301ns SUCCESS	 X:  1.281128	 Expected Y:  3.593229	 Got Y:  3.593225	 Error:  0.000005	 <  0.045000
+# at        5421ns SUCCESS	 X:  2.267822	 Expected Y:  9.385154	 Got Y:  9.385226	 Error:  0.000072	 <  0.045000
+# at        5541ns SUCCESS	 X:  0.239319	 Expected Y:  1.270383	 Got Y:  1.270383	 Error:  0.000000	 <  0.045000
+# at        5661ns SUCCESS	 X:  1.531799	 Expected Y:  4.603725	 Got Y:  4.603722	 Error:  0.000003	 <  0.045000
+# at        5781ns SUCCESS	 X:  3.903503	 Expected Y: 39.659827	 Got Y: 39.661860	 Error:  0.002034	 <  0.045000
+# at        5901ns SUCCESS	 X:  3.112427	 Expected Y: 20.324626	 Got Y: 20.325180	 Error:  0.000554	 <  0.045000
+# at        6021ns SUCCESS	 X:  0.248901	 Expected Y:  1.282615	 Got Y:  1.282615	 Error:  0.000000	 <  0.045000
+# at        6141ns SUCCESS	 X:  3.393311	 Expected Y: 25.935299	 Got Y: 25.936218	 Error:  0.000920	 <  0.045000
+# at        6261ns SUCCESS	 X:  0.620972	 Expected Y:  1.860649	 Got Y:  1.860648	 Error:  0.000001	 <  0.045000
+#  ALL TESTS PASSED
+# Break in Module lab1_tb at lab1_tb.v line 258
+

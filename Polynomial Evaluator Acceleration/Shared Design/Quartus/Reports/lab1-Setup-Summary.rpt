@@ -1,0 +1,26 @@
+Setup Summary report for lab1
+Wed Feb  7 12:57:29 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Setup Summary
+
+
+
++--------------------------------------------------------------------------------------+
+; Setup Summary                                                                        ;
++-------+-------+---------------+--------------------+---------------------------------+
+; Clock ; Slack ; End Point TNS ; Failing End Points ; Worst-Case Operating Conditions ;
++-------+-------+---------------+--------------------+---------------------------------+
+; clk   ; 0.192 ; 0.000         ; 0                  ; Slow 900mV -40C Model           ;
++-------+-------+---------------+--------------------+---------------------------------+
+Delay Models:
+Slow 900mV 100C Model
+Slow 900mV -40C Model
+Fast 900mV 100C Model
+Fast 900mV -40C Model
+
+

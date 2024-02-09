@@ -1,0 +1,62 @@
+Summary report for lab1
+Thu Feb  8 18:13:06 2024
+Quartus Prime Version 23.4.0 Build 79 11/22/2023 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Power Analyzer Summary
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Power Analyzer Summary                                                                                        ;
++------------------------------------------------------------+--------------------------------------------------+
+; Power Analyzer Status                                      ; Successful - Wed Feb  7 14:40:15 2024            ;
+; Quartus Prime Version                                      ; 23.4.0 Build 79 11/22/2023 SC Pro Edition        ;
+; Revision Name                                              ; lab1                                             ;
+; Top-level Entity Name                                      ; lab1                                             ;
+; Family                                                     ; Arria 10                                         ;
+; Device                                                     ; 10AX115N2F45I1SG                                 ;
+; Timing Models                                              ; Final                                            ;
+; Power Models                                               ; Final                                            ;
+; Device Status                                              ; Final                                            ;
+; Total On-Chip Power Dissipation                            ; 3001.51 mW                                       ;
+; Transceiver Standby On-Chip Power Dissipation              ; 0.00 mW                                          ;
+; Transceiver Dynamic On-Chip Power Dissipation              ; 0.00 mW                                          ;
+; I/O Standby On-Chip Power Dissipation                      ; 0.06 mW                                          ;
+; I/O Dynamic On-Chip Power Dissipation                      ; 0.45 mW                                          ;
+; Core Dynamic On-Chip Power Dissipation                     ; 9.89 mW                                          ;
+; HPS Standby On-Chip Power Dissipation                      ; 0.00 mW                                          ;
+; HPS Dynamic On-Chip Power Dissipation                      ; 0.00 mW                                          ;
+; Device Static On-Chip Power Dissipation                    ; 2991.10 mW                                       ;
+; High Bandwidth Memory Standby On-Chip Power Dissipation    ; 0.00 mW                                          ;
+; High Bandwidth Memory Dynamic On-Chip Power Dissipation    ; 0.00 mW                                          ;
+; Analog/Digital Converter Standby On-Chip Power Dissipation ; 0.00 mW                                          ;
+; Analog/Digital Converter Dynamic On-Chip Power Dissipation ; 0.00 mW                                          ;
+; Power Estimation Confidence                                ; Low: user provided insufficient toggle rate data ;
++------------------------------------------------------------+--------------------------------------------------+
+
+
