@@ -1,0 +1,924 @@
+
+
+================================================================
+== Synthesis Summary Report of 'matrix_mult'
+================================================================
++ General Information: 
+    * Date:           Sun Mar  3 13:11:31 2024
+    * Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
+    * Project:        gemmhls_int
+    * Solution:       partitioning_full (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+    |    Modules    | Issue|      | Latency |  Latency  | Iteration|         | Trip |          |      |        |           |           |     |
+    |    & Loops    | Type | Slack| (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined| BRAM |   DSP  |     FF    |    LUT    | URAM|
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+    |+ matrix_mult  |     -|  0.96|     2059|  2.059e+04|         -|     2060|     -|        no|     -|  8 (3%)|  514 (~0%)|  4930 (9%)|    -|
+    | o Row_Col     |    II|  7.30|     2057|  2.057e+04|        18|        8|   256|       yes|     -|       -|          -|          -|    -|
+    +---------------+------+------+---------+-----------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* AP_MEMORY
++------------+----------+
+| Interface  | Bitwidth |
++------------+----------+
+| a_address0 | 8        |
+| a_address1 | 8        |
+| a_q0       | 8        |
+| a_q1       | 8        |
+| b_address0 | 8        |
+| b_address1 | 8        |
+| b_q0       | 8        |
+| b_q1       | 8        |
++------------+----------+
+
+* REGISTER
++------------+---------+----------+
+| Interface  | Mode    | Bitwidth |
++------------+---------+----------+
+| prod_0_0   | ap_none | 32       |
+| prod_0_1   | ap_none | 32       |
+| prod_0_10  | ap_none | 32       |
+| prod_0_11  | ap_none | 32       |
+| prod_0_12  | ap_none | 32       |
+| prod_0_13  | ap_none | 32       |
+| prod_0_14  | ap_none | 32       |
+| prod_0_15  | ap_none | 32       |
+| prod_0_2   | ap_none | 32       |
+| prod_0_3   | ap_none | 32       |
+| prod_0_4   | ap_none | 32       |
+| prod_0_5   | ap_none | 32       |
+| prod_0_6   | ap_none | 32       |
+| prod_0_7   | ap_none | 32       |
+| prod_0_8   | ap_none | 32       |
+| prod_0_9   | ap_none | 32       |
+| prod_10_0  | ap_none | 32       |
+| prod_10_1  | ap_none | 32       |
+| prod_10_10 | ap_none | 32       |
+| prod_10_11 | ap_none | 32       |
+| prod_10_12 | ap_none | 32       |
+| prod_10_13 | ap_none | 32       |
+| prod_10_14 | ap_none | 32       |
+| prod_10_15 | ap_none | 32       |
+| prod_10_2  | ap_none | 32       |
+| prod_10_3  | ap_none | 32       |
+| prod_10_4  | ap_none | 32       |
+| prod_10_5  | ap_none | 32       |
+| prod_10_6  | ap_none | 32       |
+| prod_10_7  | ap_none | 32       |
+| prod_10_8  | ap_none | 32       |
+| prod_10_9  | ap_none | 32       |
+| prod_11_0  | ap_none | 32       |
+| prod_11_1  | ap_none | 32       |
+| prod_11_10 | ap_none | 32       |
+| prod_11_11 | ap_none | 32       |
+| prod_11_12 | ap_none | 32       |
+| prod_11_13 | ap_none | 32       |
+| prod_11_14 | ap_none | 32       |
+| prod_11_15 | ap_none | 32       |
+| prod_11_2  | ap_none | 32       |
+| prod_11_3  | ap_none | 32       |
+| prod_11_4  | ap_none | 32       |
+| prod_11_5  | ap_none | 32       |
+| prod_11_6  | ap_none | 32       |
+| prod_11_7  | ap_none | 32       |
+| prod_11_8  | ap_none | 32       |
+| prod_11_9  | ap_none | 32       |
+| prod_12_0  | ap_none | 32       |
+| prod_12_1  | ap_none | 32       |
+| prod_12_10 | ap_none | 32       |
+| prod_12_11 | ap_none | 32       |
+| prod_12_12 | ap_none | 32       |
+| prod_12_13 | ap_none | 32       |
+| prod_12_14 | ap_none | 32       |
+| prod_12_15 | ap_none | 32       |
+| prod_12_2  | ap_none | 32       |
+| prod_12_3  | ap_none | 32       |
+| prod_12_4  | ap_none | 32       |
+| prod_12_5  | ap_none | 32       |
+| prod_12_6  | ap_none | 32       |
+| prod_12_7  | ap_none | 32       |
+| prod_12_8  | ap_none | 32       |
+| prod_12_9  | ap_none | 32       |
+| prod_13_0  | ap_none | 32       |
+| prod_13_1  | ap_none | 32       |
+| prod_13_10 | ap_none | 32       |
+| prod_13_11 | ap_none | 32       |
+| prod_13_12 | ap_none | 32       |
+| prod_13_13 | ap_none | 32       |
+| prod_13_14 | ap_none | 32       |
+| prod_13_15 | ap_none | 32       |
+| prod_13_2  | ap_none | 32       |
+| prod_13_3  | ap_none | 32       |
+| prod_13_4  | ap_none | 32       |
+| prod_13_5  | ap_none | 32       |
+| prod_13_6  | ap_none | 32       |
+| prod_13_7  | ap_none | 32       |
+| prod_13_8  | ap_none | 32       |
+| prod_13_9  | ap_none | 32       |
+| prod_14_0  | ap_none | 32       |
+| prod_14_1  | ap_none | 32       |
+| prod_14_10 | ap_none | 32       |
+| prod_14_11 | ap_none | 32       |
+| prod_14_12 | ap_none | 32       |
+| prod_14_13 | ap_none | 32       |
+| prod_14_14 | ap_none | 32       |
+| prod_14_15 | ap_none | 32       |
+| prod_14_2  | ap_none | 32       |
+| prod_14_3  | ap_none | 32       |
+| prod_14_4  | ap_none | 32       |
+| prod_14_5  | ap_none | 32       |
+| prod_14_6  | ap_none | 32       |
+| prod_14_7  | ap_none | 32       |
+| prod_14_8  | ap_none | 32       |
+| prod_14_9  | ap_none | 32       |
+| prod_15_0  | ap_none | 32       |
+| prod_15_1  | ap_none | 32       |
+| prod_15_10 | ap_none | 32       |
+| prod_15_11 | ap_none | 32       |
+| prod_15_12 | ap_none | 32       |
+| prod_15_13 | ap_none | 32       |
+| prod_15_14 | ap_none | 32       |
+| prod_15_15 | ap_none | 32       |
+| prod_15_2  | ap_none | 32       |
+| prod_15_3  | ap_none | 32       |
+| prod_15_4  | ap_none | 32       |
+| prod_15_5  | ap_none | 32       |
+| prod_15_6  | ap_none | 32       |
+| prod_15_7  | ap_none | 32       |
+| prod_15_8  | ap_none | 32       |
+| prod_15_9  | ap_none | 32       |
+| prod_1_0   | ap_none | 32       |
+| prod_1_1   | ap_none | 32       |
+| prod_1_10  | ap_none | 32       |
+| prod_1_11  | ap_none | 32       |
+| prod_1_12  | ap_none | 32       |
+| prod_1_13  | ap_none | 32       |
+| prod_1_14  | ap_none | 32       |
+| prod_1_15  | ap_none | 32       |
+| prod_1_2   | ap_none | 32       |
+| prod_1_3   | ap_none | 32       |
+| prod_1_4   | ap_none | 32       |
+| prod_1_5   | ap_none | 32       |
+| prod_1_6   | ap_none | 32       |
+| prod_1_7   | ap_none | 32       |
+| prod_1_8   | ap_none | 32       |
+| prod_1_9   | ap_none | 32       |
+| prod_2_0   | ap_none | 32       |
+| prod_2_1   | ap_none | 32       |
+| prod_2_10  | ap_none | 32       |
+| prod_2_11  | ap_none | 32       |
+| prod_2_12  | ap_none | 32       |
+| prod_2_13  | ap_none | 32       |
+| prod_2_14  | ap_none | 32       |
+| prod_2_15  | ap_none | 32       |
+| prod_2_2   | ap_none | 32       |
+| prod_2_3   | ap_none | 32       |
+| prod_2_4   | ap_none | 32       |
+| prod_2_5   | ap_none | 32       |
+| prod_2_6   | ap_none | 32       |
+| prod_2_7   | ap_none | 32       |
+| prod_2_8   | ap_none | 32       |
+| prod_2_9   | ap_none | 32       |
+| prod_3_0   | ap_none | 32       |
+| prod_3_1   | ap_none | 32       |
+| prod_3_10  | ap_none | 32       |
+| prod_3_11  | ap_none | 32       |
+| prod_3_12  | ap_none | 32       |
+| prod_3_13  | ap_none | 32       |
+| prod_3_14  | ap_none | 32       |
+| prod_3_15  | ap_none | 32       |
+| prod_3_2   | ap_none | 32       |
+| prod_3_3   | ap_none | 32       |
+| prod_3_4   | ap_none | 32       |
+| prod_3_5   | ap_none | 32       |
+| prod_3_6   | ap_none | 32       |
+| prod_3_7   | ap_none | 32       |
+| prod_3_8   | ap_none | 32       |
+| prod_3_9   | ap_none | 32       |
+| prod_4_0   | ap_none | 32       |
+| prod_4_1   | ap_none | 32       |
+| prod_4_10  | ap_none | 32       |
+| prod_4_11  | ap_none | 32       |
+| prod_4_12  | ap_none | 32       |
+| prod_4_13  | ap_none | 32       |
+| prod_4_14  | ap_none | 32       |
+| prod_4_15  | ap_none | 32       |
+| prod_4_2   | ap_none | 32       |
+| prod_4_3   | ap_none | 32       |
+| prod_4_4   | ap_none | 32       |
+| prod_4_5   | ap_none | 32       |
+| prod_4_6   | ap_none | 32       |
+| prod_4_7   | ap_none | 32       |
+| prod_4_8   | ap_none | 32       |
+| prod_4_9   | ap_none | 32       |
+| prod_5_0   | ap_none | 32       |
+| prod_5_1   | ap_none | 32       |
+| prod_5_10  | ap_none | 32       |
+| prod_5_11  | ap_none | 32       |
+| prod_5_12  | ap_none | 32       |
+| prod_5_13  | ap_none | 32       |
+| prod_5_14  | ap_none | 32       |
+| prod_5_15  | ap_none | 32       |
+| prod_5_2   | ap_none | 32       |
+| prod_5_3   | ap_none | 32       |
+| prod_5_4   | ap_none | 32       |
+| prod_5_5   | ap_none | 32       |
+| prod_5_6   | ap_none | 32       |
+| prod_5_7   | ap_none | 32       |
+| prod_5_8   | ap_none | 32       |
+| prod_5_9   | ap_none | 32       |
+| prod_6_0   | ap_none | 32       |
+| prod_6_1   | ap_none | 32       |
+| prod_6_10  | ap_none | 32       |
+| prod_6_11  | ap_none | 32       |
+| prod_6_12  | ap_none | 32       |
+| prod_6_13  | ap_none | 32       |
+| prod_6_14  | ap_none | 32       |
+| prod_6_15  | ap_none | 32       |
+| prod_6_2   | ap_none | 32       |
+| prod_6_3   | ap_none | 32       |
+| prod_6_4   | ap_none | 32       |
+| prod_6_5   | ap_none | 32       |
+| prod_6_6   | ap_none | 32       |
+| prod_6_7   | ap_none | 32       |
+| prod_6_8   | ap_none | 32       |
+| prod_6_9   | ap_none | 32       |
+| prod_7_0   | ap_none | 32       |
+| prod_7_1   | ap_none | 32       |
+| prod_7_10  | ap_none | 32       |
+| prod_7_11  | ap_none | 32       |
+| prod_7_12  | ap_none | 32       |
+| prod_7_13  | ap_none | 32       |
+| prod_7_14  | ap_none | 32       |
+| prod_7_15  | ap_none | 32       |
+| prod_7_2   | ap_none | 32       |
+| prod_7_3   | ap_none | 32       |
+| prod_7_4   | ap_none | 32       |
+| prod_7_5   | ap_none | 32       |
+| prod_7_6   | ap_none | 32       |
+| prod_7_7   | ap_none | 32       |
+| prod_7_8   | ap_none | 32       |
+| prod_7_9   | ap_none | 32       |
+| prod_8_0   | ap_none | 32       |
+| prod_8_1   | ap_none | 32       |
+| prod_8_10  | ap_none | 32       |
+| prod_8_11  | ap_none | 32       |
+| prod_8_12  | ap_none | 32       |
+| prod_8_13  | ap_none | 32       |
+| prod_8_14  | ap_none | 32       |
+| prod_8_15  | ap_none | 32       |
+| prod_8_2   | ap_none | 32       |
+| prod_8_3   | ap_none | 32       |
+| prod_8_4   | ap_none | 32       |
+| prod_8_5   | ap_none | 32       |
+| prod_8_6   | ap_none | 32       |
+| prod_8_7   | ap_none | 32       |
+| prod_8_8   | ap_none | 32       |
+| prod_8_9   | ap_none | 32       |
+| prod_9_0   | ap_none | 32       |
+| prod_9_1   | ap_none | 32       |
+| prod_9_10  | ap_none | 32       |
+| prod_9_11  | ap_none | 32       |
+| prod_9_12  | ap_none | 32       |
+| prod_9_13  | ap_none | 32       |
+| prod_9_14  | ap_none | 32       |
+| prod_9_15  | ap_none | 32       |
+| prod_9_2   | ap_none | 32       |
+| prod_9_3   | ap_none | 32       |
+| prod_9_4   | ap_none | 32       |
+| prod_9_5   | ap_none | 32       |
+| prod_9_6   | ap_none | 32       |
+| prod_9_7   | ap_none | 32       |
+| prod_9_8   | ap_none | 32       |
+| prod_9_9   | ap_none | 32       |
++------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------------------------------+
+| Interface | Type       | Ports                             |
++-----------+------------+-----------------------------------+
+| ap_clk    | clock      | ap_clk                            |
+| ap_rst    | reset      | ap_rst                            |
+| ap_ctrl   | ap_ctrl_hs | ap_done ap_idle ap_ready ap_start |
++-----------+------------+-----------------------------------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+--------------+
+| Argument | Direction | Datatype     |
++----------+-----------+--------------+
+| a        | in        | ap_uint<8>*  |
+| b        | in        | ap_uint<8>*  |
+| prod     | out       | ap_uint<32>* |
++----------+-----------+--------------+
+
+* SW-to-HW Mapping
++----------+-------------------+---------+----------+
+| Argument | HW Interface      | HW Type | HW Usage |
++----------+-------------------+---------+----------+
+| a        | a_address0        | port    | offset   |
+| a        | a_ce0             | port    |          |
+| a        | a_q0              | port    |          |
+| a        | a_address1        | port    | offset   |
+| a        | a_ce1             | port    |          |
+| a        | a_q1              | port    |          |
+| b        | b_address0        | port    | offset   |
+| b        | b_ce0             | port    |          |
+| b        | b_q0              | port    |          |
+| b        | b_address1        | port    | offset   |
+| b        | b_ce1             | port    |          |
+| b        | b_q1              | port    |          |
+| prod     | prod_0_0          | port    |          |
+| prod     | prod_0_0_ap_vld   | port    |          |
+| prod     | prod_0_1          | port    |          |
+| prod     | prod_0_1_ap_vld   | port    |          |
+| prod     | prod_0_2          | port    |          |
+| prod     | prod_0_2_ap_vld   | port    |          |
+| prod     | prod_0_3          | port    |          |
+| prod     | prod_0_3_ap_vld   | port    |          |
+| prod     | prod_0_4          | port    |          |
+| prod     | prod_0_4_ap_vld   | port    |          |
+| prod     | prod_0_5          | port    |          |
+| prod     | prod_0_5_ap_vld   | port    |          |
+| prod     | prod_0_6          | port    |          |
+| prod     | prod_0_6_ap_vld   | port    |          |
+| prod     | prod_0_7          | port    |          |
+| prod     | prod_0_7_ap_vld   | port    |          |
+| prod     | prod_0_8          | port    |          |
+| prod     | prod_0_8_ap_vld   | port    |          |
+| prod     | prod_0_9          | port    |          |
+| prod     | prod_0_9_ap_vld   | port    |          |
+| prod     | prod_0_10         | port    |          |
+| prod     | prod_0_10_ap_vld  | port    |          |
+| prod     | prod_0_11         | port    |          |
+| prod     | prod_0_11_ap_vld  | port    |          |
+| prod     | prod_0_12         | port    |          |
+| prod     | prod_0_12_ap_vld  | port    |          |
+| prod     | prod_0_13         | port    |          |
+| prod     | prod_0_13_ap_vld  | port    |          |
+| prod     | prod_0_14         | port    |          |
+| prod     | prod_0_14_ap_vld  | port    |          |
+| prod     | prod_0_15         | port    |          |
+| prod     | prod_0_15_ap_vld  | port    |          |
+| prod     | prod_1_0          | port    |          |
+| prod     | prod_1_0_ap_vld   | port    |          |
+| prod     | prod_1_1          | port    |          |
+| prod     | prod_1_1_ap_vld   | port    |          |
+| prod     | prod_1_2          | port    |          |
+| prod     | prod_1_2_ap_vld   | port    |          |
+| prod     | prod_1_3          | port    |          |
+| prod     | prod_1_3_ap_vld   | port    |          |
+| prod     | prod_1_4          | port    |          |
+| prod     | prod_1_4_ap_vld   | port    |          |
+| prod     | prod_1_5          | port    |          |
+| prod     | prod_1_5_ap_vld   | port    |          |
+| prod     | prod_1_6          | port    |          |
+| prod     | prod_1_6_ap_vld   | port    |          |
+| prod     | prod_1_7          | port    |          |
+| prod     | prod_1_7_ap_vld   | port    |          |
+| prod     | prod_1_8          | port    |          |
+| prod     | prod_1_8_ap_vld   | port    |          |
+| prod     | prod_1_9          | port    |          |
+| prod     | prod_1_9_ap_vld   | port    |          |
+| prod     | prod_1_10         | port    |          |
+| prod     | prod_1_10_ap_vld  | port    |          |
+| prod     | prod_1_11         | port    |          |
+| prod     | prod_1_11_ap_vld  | port    |          |
+| prod     | prod_1_12         | port    |          |
+| prod     | prod_1_12_ap_vld  | port    |          |
+| prod     | prod_1_13         | port    |          |
+| prod     | prod_1_13_ap_vld  | port    |          |
+| prod     | prod_1_14         | port    |          |
+| prod     | prod_1_14_ap_vld  | port    |          |
+| prod     | prod_1_15         | port    |          |
+| prod     | prod_1_15_ap_vld  | port    |          |
+| prod     | prod_2_0          | port    |          |
+| prod     | prod_2_0_ap_vld   | port    |          |
+| prod     | prod_2_1          | port    |          |
+| prod     | prod_2_1_ap_vld   | port    |          |
+| prod     | prod_2_2          | port    |          |
+| prod     | prod_2_2_ap_vld   | port    |          |
+| prod     | prod_2_3          | port    |          |
+| prod     | prod_2_3_ap_vld   | port    |          |
+| prod     | prod_2_4          | port    |          |
+| prod     | prod_2_4_ap_vld   | port    |          |
+| prod     | prod_2_5          | port    |          |
+| prod     | prod_2_5_ap_vld   | port    |          |
+| prod     | prod_2_6          | port    |          |
+| prod     | prod_2_6_ap_vld   | port    |          |
+| prod     | prod_2_7          | port    |          |
+| prod     | prod_2_7_ap_vld   | port    |          |
+| prod     | prod_2_8          | port    |          |
+| prod     | prod_2_8_ap_vld   | port    |          |
+| prod     | prod_2_9          | port    |          |
+| prod     | prod_2_9_ap_vld   | port    |          |
+| prod     | prod_2_10         | port    |          |
+| prod     | prod_2_10_ap_vld  | port    |          |
+| prod     | prod_2_11         | port    |          |
+| prod     | prod_2_11_ap_vld  | port    |          |
+| prod     | prod_2_12         | port    |          |
+| prod     | prod_2_12_ap_vld  | port    |          |
+| prod     | prod_2_13         | port    |          |
+| prod     | prod_2_13_ap_vld  | port    |          |
+| prod     | prod_2_14         | port    |          |
+| prod     | prod_2_14_ap_vld  | port    |          |
+| prod     | prod_2_15         | port    |          |
+| prod     | prod_2_15_ap_vld  | port    |          |
+| prod     | prod_3_0          | port    |          |
+| prod     | prod_3_0_ap_vld   | port    |          |
+| prod     | prod_3_1          | port    |          |
+| prod     | prod_3_1_ap_vld   | port    |          |
+| prod     | prod_3_2          | port    |          |
+| prod     | prod_3_2_ap_vld   | port    |          |
+| prod     | prod_3_3          | port    |          |
+| prod     | prod_3_3_ap_vld   | port    |          |
+| prod     | prod_3_4          | port    |          |
+| prod     | prod_3_4_ap_vld   | port    |          |
+| prod     | prod_3_5          | port    |          |
+| prod     | prod_3_5_ap_vld   | port    |          |
+| prod     | prod_3_6          | port    |          |
+| prod     | prod_3_6_ap_vld   | port    |          |
+| prod     | prod_3_7          | port    |          |
+| prod     | prod_3_7_ap_vld   | port    |          |
+| prod     | prod_3_8          | port    |          |
+| prod     | prod_3_8_ap_vld   | port    |          |
+| prod     | prod_3_9          | port    |          |
+| prod     | prod_3_9_ap_vld   | port    |          |
+| prod     | prod_3_10         | port    |          |
+| prod     | prod_3_10_ap_vld  | port    |          |
+| prod     | prod_3_11         | port    |          |
+| prod     | prod_3_11_ap_vld  | port    |          |
+| prod     | prod_3_12         | port    |          |
+| prod     | prod_3_12_ap_vld  | port    |          |
+| prod     | prod_3_13         | port    |          |
+| prod     | prod_3_13_ap_vld  | port    |          |
+| prod     | prod_3_14         | port    |          |
+| prod     | prod_3_14_ap_vld  | port    |          |
+| prod     | prod_3_15         | port    |          |
+| prod     | prod_3_15_ap_vld  | port    |          |
+| prod     | prod_4_0          | port    |          |
+| prod     | prod_4_0_ap_vld   | port    |          |
+| prod     | prod_4_1          | port    |          |
+| prod     | prod_4_1_ap_vld   | port    |          |
+| prod     | prod_4_2          | port    |          |
+| prod     | prod_4_2_ap_vld   | port    |          |
+| prod     | prod_4_3          | port    |          |
+| prod     | prod_4_3_ap_vld   | port    |          |
+| prod     | prod_4_4          | port    |          |
+| prod     | prod_4_4_ap_vld   | port    |          |
+| prod     | prod_4_5          | port    |          |
+| prod     | prod_4_5_ap_vld   | port    |          |
+| prod     | prod_4_6          | port    |          |
+| prod     | prod_4_6_ap_vld   | port    |          |
+| prod     | prod_4_7          | port    |          |
+| prod     | prod_4_7_ap_vld   | port    |          |
+| prod     | prod_4_8          | port    |          |
+| prod     | prod_4_8_ap_vld   | port    |          |
+| prod     | prod_4_9          | port    |          |
+| prod     | prod_4_9_ap_vld   | port    |          |
+| prod     | prod_4_10         | port    |          |
+| prod     | prod_4_10_ap_vld  | port    |          |
+| prod     | prod_4_11         | port    |          |
+| prod     | prod_4_11_ap_vld  | port    |          |
+| prod     | prod_4_12         | port    |          |
+| prod     | prod_4_12_ap_vld  | port    |          |
+| prod     | prod_4_13         | port    |          |
+| prod     | prod_4_13_ap_vld  | port    |          |
+| prod     | prod_4_14         | port    |          |
+| prod     | prod_4_14_ap_vld  | port    |          |
+| prod     | prod_4_15         | port    |          |
+| prod     | prod_4_15_ap_vld  | port    |          |
+| prod     | prod_5_0          | port    |          |
+| prod     | prod_5_0_ap_vld   | port    |          |
+| prod     | prod_5_1          | port    |          |
+| prod     | prod_5_1_ap_vld   | port    |          |
+| prod     | prod_5_2          | port    |          |
+| prod     | prod_5_2_ap_vld   | port    |          |
+| prod     | prod_5_3          | port    |          |
+| prod     | prod_5_3_ap_vld   | port    |          |
+| prod     | prod_5_4          | port    |          |
+| prod     | prod_5_4_ap_vld   | port    |          |
+| prod     | prod_5_5          | port    |          |
+| prod     | prod_5_5_ap_vld   | port    |          |
+| prod     | prod_5_6          | port    |          |
+| prod     | prod_5_6_ap_vld   | port    |          |
+| prod     | prod_5_7          | port    |          |
+| prod     | prod_5_7_ap_vld   | port    |          |
+| prod     | prod_5_8          | port    |          |
+| prod     | prod_5_8_ap_vld   | port    |          |
+| prod     | prod_5_9          | port    |          |
+| prod     | prod_5_9_ap_vld   | port    |          |
+| prod     | prod_5_10         | port    |          |
+| prod     | prod_5_10_ap_vld  | port    |          |
+| prod     | prod_5_11         | port    |          |
+| prod     | prod_5_11_ap_vld  | port    |          |
+| prod     | prod_5_12         | port    |          |
+| prod     | prod_5_12_ap_vld  | port    |          |
+| prod     | prod_5_13         | port    |          |
+| prod     | prod_5_13_ap_vld  | port    |          |
+| prod     | prod_5_14         | port    |          |
+| prod     | prod_5_14_ap_vld  | port    |          |
+| prod     | prod_5_15         | port    |          |
+| prod     | prod_5_15_ap_vld  | port    |          |
+| prod     | prod_6_0          | port    |          |
+| prod     | prod_6_0_ap_vld   | port    |          |
+| prod     | prod_6_1          | port    |          |
+| prod     | prod_6_1_ap_vld   | port    |          |
+| prod     | prod_6_2          | port    |          |
+| prod     | prod_6_2_ap_vld   | port    |          |
+| prod     | prod_6_3          | port    |          |
+| prod     | prod_6_3_ap_vld   | port    |          |
+| prod     | prod_6_4          | port    |          |
+| prod     | prod_6_4_ap_vld   | port    |          |
+| prod     | prod_6_5          | port    |          |
+| prod     | prod_6_5_ap_vld   | port    |          |
+| prod     | prod_6_6          | port    |          |
+| prod     | prod_6_6_ap_vld   | port    |          |
+| prod     | prod_6_7          | port    |          |
+| prod     | prod_6_7_ap_vld   | port    |          |
+| prod     | prod_6_8          | port    |          |
+| prod     | prod_6_8_ap_vld   | port    |          |
+| prod     | prod_6_9          | port    |          |
+| prod     | prod_6_9_ap_vld   | port    |          |
+| prod     | prod_6_10         | port    |          |
+| prod     | prod_6_10_ap_vld  | port    |          |
+| prod     | prod_6_11         | port    |          |
+| prod     | prod_6_11_ap_vld  | port    |          |
+| prod     | prod_6_12         | port    |          |
+| prod     | prod_6_12_ap_vld  | port    |          |
+| prod     | prod_6_13         | port    |          |
+| prod     | prod_6_13_ap_vld  | port    |          |
+| prod     | prod_6_14         | port    |          |
+| prod     | prod_6_14_ap_vld  | port    |          |
+| prod     | prod_6_15         | port    |          |
+| prod     | prod_6_15_ap_vld  | port    |          |
+| prod     | prod_7_0          | port    |          |
+| prod     | prod_7_0_ap_vld   | port    |          |
+| prod     | prod_7_1          | port    |          |
+| prod     | prod_7_1_ap_vld   | port    |          |
+| prod     | prod_7_2          | port    |          |
+| prod     | prod_7_2_ap_vld   | port    |          |
+| prod     | prod_7_3          | port    |          |
+| prod     | prod_7_3_ap_vld   | port    |          |
+| prod     | prod_7_4          | port    |          |
+| prod     | prod_7_4_ap_vld   | port    |          |
+| prod     | prod_7_5          | port    |          |
+| prod     | prod_7_5_ap_vld   | port    |          |
+| prod     | prod_7_6          | port    |          |
+| prod     | prod_7_6_ap_vld   | port    |          |
+| prod     | prod_7_7          | port    |          |
+| prod     | prod_7_7_ap_vld   | port    |          |
+| prod     | prod_7_8          | port    |          |
+| prod     | prod_7_8_ap_vld   | port    |          |
+| prod     | prod_7_9          | port    |          |
+| prod     | prod_7_9_ap_vld   | port    |          |
+| prod     | prod_7_10         | port    |          |
+| prod     | prod_7_10_ap_vld  | port    |          |
+| prod     | prod_7_11         | port    |          |
+| prod     | prod_7_11_ap_vld  | port    |          |
+| prod     | prod_7_12         | port    |          |
+| prod     | prod_7_12_ap_vld  | port    |          |
+| prod     | prod_7_13         | port    |          |
+| prod     | prod_7_13_ap_vld  | port    |          |
+| prod     | prod_7_14         | port    |          |
+| prod     | prod_7_14_ap_vld  | port    |          |
+| prod     | prod_7_15         | port    |          |
+| prod     | prod_7_15_ap_vld  | port    |          |
+| prod     | prod_8_0          | port    |          |
+| prod     | prod_8_0_ap_vld   | port    |          |
+| prod     | prod_8_1          | port    |          |
+| prod     | prod_8_1_ap_vld   | port    |          |
+| prod     | prod_8_2          | port    |          |
+| prod     | prod_8_2_ap_vld   | port    |          |
+| prod     | prod_8_3          | port    |          |
+| prod     | prod_8_3_ap_vld   | port    |          |
+| prod     | prod_8_4          | port    |          |
+| prod     | prod_8_4_ap_vld   | port    |          |
+| prod     | prod_8_5          | port    |          |
+| prod     | prod_8_5_ap_vld   | port    |          |
+| prod     | prod_8_6          | port    |          |
+| prod     | prod_8_6_ap_vld   | port    |          |
+| prod     | prod_8_7          | port    |          |
+| prod     | prod_8_7_ap_vld   | port    |          |
+| prod     | prod_8_8          | port    |          |
+| prod     | prod_8_8_ap_vld   | port    |          |
+| prod     | prod_8_9          | port    |          |
+| prod     | prod_8_9_ap_vld   | port    |          |
+| prod     | prod_8_10         | port    |          |
+| prod     | prod_8_10_ap_vld  | port    |          |
+| prod     | prod_8_11         | port    |          |
+| prod     | prod_8_11_ap_vld  | port    |          |
+| prod     | prod_8_12         | port    |          |
+| prod     | prod_8_12_ap_vld  | port    |          |
+| prod     | prod_8_13         | port    |          |
+| prod     | prod_8_13_ap_vld  | port    |          |
+| prod     | prod_8_14         | port    |          |
+| prod     | prod_8_14_ap_vld  | port    |          |
+| prod     | prod_8_15         | port    |          |
+| prod     | prod_8_15_ap_vld  | port    |          |
+| prod     | prod_9_0          | port    |          |
+| prod     | prod_9_0_ap_vld   | port    |          |
+| prod     | prod_9_1          | port    |          |
+| prod     | prod_9_1_ap_vld   | port    |          |
+| prod     | prod_9_2          | port    |          |
+| prod     | prod_9_2_ap_vld   | port    |          |
+| prod     | prod_9_3          | port    |          |
+| prod     | prod_9_3_ap_vld   | port    |          |
+| prod     | prod_9_4          | port    |          |
+| prod     | prod_9_4_ap_vld   | port    |          |
+| prod     | prod_9_5          | port    |          |
+| prod     | prod_9_5_ap_vld   | port    |          |
+| prod     | prod_9_6          | port    |          |
+| prod     | prod_9_6_ap_vld   | port    |          |
+| prod     | prod_9_7          | port    |          |
+| prod     | prod_9_7_ap_vld   | port    |          |
+| prod     | prod_9_8          | port    |          |
+| prod     | prod_9_8_ap_vld   | port    |          |
+| prod     | prod_9_9          | port    |          |
+| prod     | prod_9_9_ap_vld   | port    |          |
+| prod     | prod_9_10         | port    |          |
+| prod     | prod_9_10_ap_vld  | port    |          |
+| prod     | prod_9_11         | port    |          |
+| prod     | prod_9_11_ap_vld  | port    |          |
+| prod     | prod_9_12         | port    |          |
+| prod     | prod_9_12_ap_vld  | port    |          |
+| prod     | prod_9_13         | port    |          |
+| prod     | prod_9_13_ap_vld  | port    |          |
+| prod     | prod_9_14         | port    |          |
+| prod     | prod_9_14_ap_vld  | port    |          |
+| prod     | prod_9_15         | port    |          |
+| prod     | prod_9_15_ap_vld  | port    |          |
+| prod     | prod_10_0         | port    |          |
+| prod     | prod_10_0_ap_vld  | port    |          |
+| prod     | prod_10_1         | port    |          |
+| prod     | prod_10_1_ap_vld  | port    |          |
+| prod     | prod_10_2         | port    |          |
+| prod     | prod_10_2_ap_vld  | port    |          |
+| prod     | prod_10_3         | port    |          |
+| prod     | prod_10_3_ap_vld  | port    |          |
+| prod     | prod_10_4         | port    |          |
+| prod     | prod_10_4_ap_vld  | port    |          |
+| prod     | prod_10_5         | port    |          |
+| prod     | prod_10_5_ap_vld  | port    |          |
+| prod     | prod_10_6         | port    |          |
+| prod     | prod_10_6_ap_vld  | port    |          |
+| prod     | prod_10_7         | port    |          |
+| prod     | prod_10_7_ap_vld  | port    |          |
+| prod     | prod_10_8         | port    |          |
+| prod     | prod_10_8_ap_vld  | port    |          |
+| prod     | prod_10_9         | port    |          |
+| prod     | prod_10_9_ap_vld  | port    |          |
+| prod     | prod_10_10        | port    |          |
+| prod     | prod_10_10_ap_vld | port    |          |
+| prod     | prod_10_11        | port    |          |
+| prod     | prod_10_11_ap_vld | port    |          |
+| prod     | prod_10_12        | port    |          |
+| prod     | prod_10_12_ap_vld | port    |          |
+| prod     | prod_10_13        | port    |          |
+| prod     | prod_10_13_ap_vld | port    |          |
+| prod     | prod_10_14        | port    |          |
+| prod     | prod_10_14_ap_vld | port    |          |
+| prod     | prod_10_15        | port    |          |
+| prod     | prod_10_15_ap_vld | port    |          |
+| prod     | prod_11_0         | port    |          |
+| prod     | prod_11_0_ap_vld  | port    |          |
+| prod     | prod_11_1         | port    |          |
+| prod     | prod_11_1_ap_vld  | port    |          |
+| prod     | prod_11_2         | port    |          |
+| prod     | prod_11_2_ap_vld  | port    |          |
+| prod     | prod_11_3         | port    |          |
+| prod     | prod_11_3_ap_vld  | port    |          |
+| prod     | prod_11_4         | port    |          |
+| prod     | prod_11_4_ap_vld  | port    |          |
+| prod     | prod_11_5         | port    |          |
+| prod     | prod_11_5_ap_vld  | port    |          |
+| prod     | prod_11_6         | port    |          |
+| prod     | prod_11_6_ap_vld  | port    |          |
+| prod     | prod_11_7         | port    |          |
+| prod     | prod_11_7_ap_vld  | port    |          |
+| prod     | prod_11_8         | port    |          |
+| prod     | prod_11_8_ap_vld  | port    |          |
+| prod     | prod_11_9         | port    |          |
+| prod     | prod_11_9_ap_vld  | port    |          |
+| prod     | prod_11_10        | port    |          |
+| prod     | prod_11_10_ap_vld | port    |          |
+| prod     | prod_11_11        | port    |          |
+| prod     | prod_11_11_ap_vld | port    |          |
+| prod     | prod_11_12        | port    |          |
+| prod     | prod_11_12_ap_vld | port    |          |
+| prod     | prod_11_13        | port    |          |
+| prod     | prod_11_13_ap_vld | port    |          |
+| prod     | prod_11_14        | port    |          |
+| prod     | prod_11_14_ap_vld | port    |          |
+| prod     | prod_11_15        | port    |          |
+| prod     | prod_11_15_ap_vld | port    |          |
+| prod     | prod_12_0         | port    |          |
+| prod     | prod_12_0_ap_vld  | port    |          |
+| prod     | prod_12_1         | port    |          |
+| prod     | prod_12_1_ap_vld  | port    |          |
+| prod     | prod_12_2         | port    |          |
+| prod     | prod_12_2_ap_vld  | port    |          |
+| prod     | prod_12_3         | port    |          |
+| prod     | prod_12_3_ap_vld  | port    |          |
+| prod     | prod_12_4         | port    |          |
+| prod     | prod_12_4_ap_vld  | port    |          |
+| prod     | prod_12_5         | port    |          |
+| prod     | prod_12_5_ap_vld  | port    |          |
+| prod     | prod_12_6         | port    |          |
+| prod     | prod_12_6_ap_vld  | port    |          |
+| prod     | prod_12_7         | port    |          |
+| prod     | prod_12_7_ap_vld  | port    |          |
+| prod     | prod_12_8         | port    |          |
+| prod     | prod_12_8_ap_vld  | port    |          |
+| prod     | prod_12_9         | port    |          |
+| prod     | prod_12_9_ap_vld  | port    |          |
+| prod     | prod_12_10        | port    |          |
+| prod     | prod_12_10_ap_vld | port    |          |
+| prod     | prod_12_11        | port    |          |
+| prod     | prod_12_11_ap_vld | port    |          |
+| prod     | prod_12_12        | port    |          |
+| prod     | prod_12_12_ap_vld | port    |          |
+| prod     | prod_12_13        | port    |          |
+| prod     | prod_12_13_ap_vld | port    |          |
+| prod     | prod_12_14        | port    |          |
+| prod     | prod_12_14_ap_vld | port    |          |
+| prod     | prod_12_15        | port    |          |
+| prod     | prod_12_15_ap_vld | port    |          |
+| prod     | prod_13_0         | port    |          |
+| prod     | prod_13_0_ap_vld  | port    |          |
+| prod     | prod_13_1         | port    |          |
+| prod     | prod_13_1_ap_vld  | port    |          |
+| prod     | prod_13_2         | port    |          |
+| prod     | prod_13_2_ap_vld  | port    |          |
+| prod     | prod_13_3         | port    |          |
+| prod     | prod_13_3_ap_vld  | port    |          |
+| prod     | prod_13_4         | port    |          |
+| prod     | prod_13_4_ap_vld  | port    |          |
+| prod     | prod_13_5         | port    |          |
+| prod     | prod_13_5_ap_vld  | port    |          |
+| prod     | prod_13_6         | port    |          |
+| prod     | prod_13_6_ap_vld  | port    |          |
+| prod     | prod_13_7         | port    |          |
+| prod     | prod_13_7_ap_vld  | port    |          |
+| prod     | prod_13_8         | port    |          |
+| prod     | prod_13_8_ap_vld  | port    |          |
+| prod     | prod_13_9         | port    |          |
+| prod     | prod_13_9_ap_vld  | port    |          |
+| prod     | prod_13_10        | port    |          |
+| prod     | prod_13_10_ap_vld | port    |          |
+| prod     | prod_13_11        | port    |          |
+| prod     | prod_13_11_ap_vld | port    |          |
+| prod     | prod_13_12        | port    |          |
+| prod     | prod_13_12_ap_vld | port    |          |
+| prod     | prod_13_13        | port    |          |
+| prod     | prod_13_13_ap_vld | port    |          |
+| prod     | prod_13_14        | port    |          |
+| prod     | prod_13_14_ap_vld | port    |          |
+| prod     | prod_13_15        | port    |          |
+| prod     | prod_13_15_ap_vld | port    |          |
+| prod     | prod_14_0         | port    |          |
+| prod     | prod_14_0_ap_vld  | port    |          |
+| prod     | prod_14_1         | port    |          |
+| prod     | prod_14_1_ap_vld  | port    |          |
+| prod     | prod_14_2         | port    |          |
+| prod     | prod_14_2_ap_vld  | port    |          |
+| prod     | prod_14_3         | port    |          |
+| prod     | prod_14_3_ap_vld  | port    |          |
+| prod     | prod_14_4         | port    |          |
+| prod     | prod_14_4_ap_vld  | port    |          |
+| prod     | prod_14_5         | port    |          |
+| prod     | prod_14_5_ap_vld  | port    |          |
+| prod     | prod_14_6         | port    |          |
+| prod     | prod_14_6_ap_vld  | port    |          |
+| prod     | prod_14_7         | port    |          |
+| prod     | prod_14_7_ap_vld  | port    |          |
+| prod     | prod_14_8         | port    |          |
+| prod     | prod_14_8_ap_vld  | port    |          |
+| prod     | prod_14_9         | port    |          |
+| prod     | prod_14_9_ap_vld  | port    |          |
+| prod     | prod_14_10        | port    |          |
+| prod     | prod_14_10_ap_vld | port    |          |
+| prod     | prod_14_11        | port    |          |
+| prod     | prod_14_11_ap_vld | port    |          |
+| prod     | prod_14_12        | port    |          |
+| prod     | prod_14_12_ap_vld | port    |          |
+| prod     | prod_14_13        | port    |          |
+| prod     | prod_14_13_ap_vld | port    |          |
+| prod     | prod_14_14        | port    |          |
+| prod     | prod_14_14_ap_vld | port    |          |
+| prod     | prod_14_15        | port    |          |
+| prod     | prod_14_15_ap_vld | port    |          |
+| prod     | prod_15_0         | port    |          |
+| prod     | prod_15_0_ap_vld  | port    |          |
+| prod     | prod_15_1         | port    |          |
+| prod     | prod_15_1_ap_vld  | port    |          |
+| prod     | prod_15_2         | port    |          |
+| prod     | prod_15_2_ap_vld  | port    |          |
+| prod     | prod_15_3         | port    |          |
+| prod     | prod_15_3_ap_vld  | port    |          |
+| prod     | prod_15_4         | port    |          |
+| prod     | prod_15_4_ap_vld  | port    |          |
+| prod     | prod_15_5         | port    |          |
+| prod     | prod_15_5_ap_vld  | port    |          |
+| prod     | prod_15_6         | port    |          |
+| prod     | prod_15_6_ap_vld  | port    |          |
+| prod     | prod_15_7         | port    |          |
+| prod     | prod_15_7_ap_vld  | port    |          |
+| prod     | prod_15_8         | port    |          |
+| prod     | prod_15_8_ap_vld  | port    |          |
+| prod     | prod_15_9         | port    |          |
+| prod     | prod_15_9_ap_vld  | port    |          |
+| prod     | prod_15_10        | port    |          |
+| prod     | prod_15_10_ap_vld | port    |          |
+| prod     | prod_15_11        | port    |          |
+| prod     | prod_15_11_ap_vld | port    |          |
+| prod     | prod_15_12        | port    |          |
+| prod     | prod_15_12_ap_vld | port    |          |
+| prod     | prod_15_13        | port    |          |
+| prod     | prod_15_13_ap_vld | port    |          |
+| prod     | prod_15_14        | port    |          |
+| prod     | prod_15_14_ap_vld | port    |          |
+| prod     | prod_15_15        | port    |          |
+| prod     | prod_15_15_ap_vld | port    |          |
++----------+-------------------+---------+----------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------+-----+--------+---------------+-----+--------+---------+
+| Name                                 | DSP | Pragma | Variable      | Op  | Impl   | Latency |
++--------------------------------------+-----+--------+---------------+-----+--------+---------+
+| + matrix_mult                        | 8   |        |               |     |        |         |
+|   add_ln14_1_fu_3070_p2              | -   |        | add_ln14_1    | add | fabric | 0       |
+|   add_ln14_fu_3079_p2                | -   |        | add_ln14      | add | fabric | 0       |
+|   add_ln232_fu_3357_p2               | -   |        | add_ln232     | add | fabric | 0       |
+|   add_ln232_1_fu_3368_p2             | -   |        | add_ln232_1   | add | fabric | 0       |
+|   add_ln232_2_fu_3423_p2             | -   |        | add_ln232_2   | add | fabric | 0       |
+|   add_ln232_3_fu_3189_p2             | -   |        | add_ln232_3   | add | fabric | 0       |
+|   add_ln232_4_fu_3219_p2             | -   |        | add_ln232_4   | add | fabric | 0       |
+|   add_ln232_5_fu_3229_p2             | -   |        | add_ln232_5   | add | fabric | 0       |
+|   mul_8ns_8ns_16_1_1_U1              | -   |        | mul_ln1540    | mul | auto   | 0       |
+|   mul_8ns_8ns_16_1_1_U5              | -   |        | mul_ln1540_1  | mul | auto   | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U13 | 1   |        | mul_ln1540_2  | mul | dsp48  | 3       |
+|   mul_8ns_8ns_16_1_1_U6              | -   |        | mul_ln1540_3  | mul | auto   | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U9  | 1   |        | mul_ln1540_4  | mul | dsp48  | 3       |
+|   mul_8ns_8ns_16_1_1_U7              | -   |        | mul_ln1540_5  | mul | auto   | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U14 | 1   |        | mul_ln1540_6  | mul | dsp48  | 3       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U10 | 1   |        | mul_ln1540_7  | mul | dsp48  | 3       |
+|   mul_8ns_8ns_16_1_1_U2              | -   |        | mul_ln1540_8  | mul | auto   | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U11 | 1   |        | mul_ln1540_9  | mul | dsp48  | 3       |
+|   mul_8ns_8ns_16_1_1_U3              | -   |        | mul_ln1540_10 | mul | auto   | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U12 | 1   |        | mul_ln1540_11 | mul | dsp48  | 3       |
+|   mul_8ns_8ns_16_1_1_U4              | -   |        | mul_ln1540_12 | mul | auto   | 0       |
+|   mul_8ns_8ns_16_1_1_U8              | -   |        | mul_ln1540_13 | mul | auto   | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U16 | 1   |        | mul_ln1540_14 | mul | dsp48  | 3       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U15 | 1   |        | mul_ln1540_15 | mul | dsp48  | 3       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U16 | 1   |        | add_ln886     | add | dsp48  | 3       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U12 | 1   |        | add_ln886_1   | add | dsp48  | 3       |
+|   add_ln886_2_fu_3746_p2             | -   |        | add_ln886_2   | add | fabric | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U10 | 1   |        | add_ln886_3   | add | dsp48  | 3       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U11 | 1   |        | add_ln886_4   | add | dsp48  | 3       |
+|   add_ln886_5_fu_3607_p2             | -   |        | add_ln886_5   | add | fabric | 0       |
+|   add_ln886_6_fu_3759_p2             | -   |        | add_ln886_6   | add | fabric | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U13 | 1   |        | add_ln886_7   | add | dsp48  | 3       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U9  | 1   |        | add_ln886_8   | add | dsp48  | 3       |
+|   add_ln886_9_fu_3668_p2             | -   |        | add_ln886_9   | add | fabric | 0       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U14 | 1   |        | add_ln886_10  | add | dsp48  | 3       |
+|   mac_muladd_8ns_8ns_16ns_17_4_1_U15 | 1   |        | add_ln886_11  | add | dsp48  | 3       |
+|   add_ln886_12_fu_3708_p2            | -   |        | add_ln886_12  | add | fabric | 0       |
+|   add_ln886_13_fu_3718_p2            | -   |        | add_ln886_13  | add | fabric | 0       |
+|   add_ln886_14_fu_3771_p2            | -   |        | add_ln886_14  | add | fabric | 0       |
+|   add_ln16_fu_3446_p2                | -   |        | add_ln16      | add | fabric | 0       |
++--------------------------------------+-----+--------+---------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+------------------------------+---------------------------------------------------------------------+
+| Type            | Options                      | Location                                                            |
++-----------------+------------------------------+---------------------------------------------------------------------+
+| array_partition | variable=prod complete dim=2 | gemmhls_int/partitioning_full/directives.tcl:8 in matrix_mult, prod |
++-----------------+------------------------------+---------------------------------------------------------------------+
+
+
